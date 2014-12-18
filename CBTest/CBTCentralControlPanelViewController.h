@@ -10,7 +10,7 @@
 
 @class CBTCentral;
 
-@interface CBTCentralControlPanelViewController : UIViewController
+@interface CBTCentralControlPanelViewController : UIViewController <UITableViewDataSource>
 
 @property (strong, nonatomic) CBTCentral *central;
 

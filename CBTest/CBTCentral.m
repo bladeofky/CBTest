@@ -76,10 +76,36 @@
     return _controlPanelViewController;
 }
 
+#pragma mark - CBCentralManager methods
+-(void)scanForPeripheralsWithServices:(NSArray *)serviceUUIDs options:(NSDictionary *)options
+{
+    NSLog(@"Started scanning for peripherals");
+    [self.centralManager scanForPeripheralsWithServices:serviceUUIDs options:options];
+    self.discoveredPeripherals = nil;
+}
+
+-(void)stopScan
+{
+    NSLog(@"Stopped scanning for peripherals");
+    [self.centralManager stopScan];
+}
+
 #pragma mark - CBCentralManagerDelegate
 -(void)centralManagerDidUpdateState:(CBCentralManager *)central
 {
     NSLog(@"Central manager did update state");
+}
+
+-(void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary *)advertisementData RSSI:(NSNumber *)RSSI
+{
+    if (!self.discoveredPeripherals) {
+        self.discoveredPeripherals = [NSArray arrayWithObject:peripheral];
+    }
+    else {
+        NSMutableArray *temp = [self.discoveredPeripherals mutableCopy];
+        [temp addObject:peripheral];
+        self.discoveredPeripherals = [temp copy];
+    }
 }
 
 @end
