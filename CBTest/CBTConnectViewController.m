@@ -7,10 +7,12 @@
 //
 
 #import "CBTConnectViewController.h"
-#import "CBTCentral.h"
 #import "CBTCentralControlPanelViewController.h"
+#import "CBTPeripheralControlPanelViewController.h"
 
 @interface CBTConnectViewController ()
+
+//@property (nonatomic, strong) CBTPeripheral *peripheral;
 
 @end
 
@@ -30,13 +32,16 @@
 
 - (IBAction)didPressConnectAsCentralButton:(UIButton *)sender {
     
-    // Perform necessary setup for CBCentralManager
-    CBTCentral *central = [[CBTCentral alloc]init];
+    CBTCentralControlPanelViewController *centralViewController = [[CBTCentralControlPanelViewController alloc]init];
     
-    [self.navigationController pushViewController:central.controlPanelViewController animated:YES];
+    [self.navigationController pushViewController:centralViewController animated:YES];
     
 }
 
 - (IBAction)didPressConnectAsPeripheralButton:(UIButton *)sender {
+
+    CBTPeripheralControlPanelViewController *peripheralVC = [[CBTPeripheralControlPanelViewController alloc]init];
+    
+    [self.navigationController pushViewController:peripheralVC animated:YES];
 }
 @end

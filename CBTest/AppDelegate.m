@@ -20,6 +20,7 @@
 
     self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
     
+    // Set up Central stuff
     CBTConnectViewController *connectVC = [[CBTConnectViewController alloc]init];
     UINavigationController *navVC = [[UINavigationController alloc]initWithRootViewController:connectVC];
     

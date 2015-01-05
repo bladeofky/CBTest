@@ -13,12 +13,13 @@
 		E724DA211A42302E00049BF1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E724DA1F1A42302E00049BF1 /* LaunchScreen.xib */; };
 		E724DA2D1A42302E00049BF1 /* CBTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E724DA2C1A42302E00049BF1 /* CBTestTests.m */; };
 		E724DA3D1A4231D000049BF1 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E724DA3C1A4231D000049BF1 /* CoreBluetooth.framework */; };
-		E724DA401A4234E700049BF1 /* CBTCentral.m in Sources */ = {isa = PBXBuildFile; fileRef = E724DA3F1A4234E700049BF1 /* CBTCentral.m */; };
 		E724DA431A4234F200049BF1 /* CBTPeripheral.m in Sources */ = {isa = PBXBuildFile; fileRef = E724DA421A4234F200049BF1 /* CBTPeripheral.m */; };
 		E724DA481A4236EA00049BF1 /* CBTConnectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E724DA461A4236EA00049BF1 /* CBTConnectViewController.m */; };
 		E724DA491A4236EA00049BF1 /* CBTConnectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E724DA471A4236EA00049BF1 /* CBTConnectViewController.xib */; };
 		E724DA4D1A4242BF00049BF1 /* CBTCentralControlPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E724DA4B1A4242BF00049BF1 /* CBTCentralControlPanelViewController.m */; };
 		E724DA4E1A4242BF00049BF1 /* CBTCentralControlPanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E724DA4C1A4242BF00049BF1 /* CBTCentralControlPanelViewController.xib */; };
+		E748E4E11A5B03C10098B34F /* CBTPeripheralControlPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E748E4DF1A5B03C10098B34F /* CBTPeripheralControlPanelViewController.m */; };
+		E748E4E21A5B03C10098B34F /* CBTPeripheralControlPanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E748E4E01A5B03C10098B34F /* CBTPeripheralControlPanelViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,8 +44,6 @@
 		E724DA2B1A42302E00049BF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E724DA2C1A42302E00049BF1 /* CBTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CBTestTests.m; sourceTree = "<group>"; };
 		E724DA3C1A4231D000049BF1 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
-		E724DA3E1A4234E700049BF1 /* CBTCentral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTCentral.h; sourceTree = "<group>"; };
-		E724DA3F1A4234E700049BF1 /* CBTCentral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTCentral.m; sourceTree = "<group>"; };
 		E724DA411A4234F200049BF1 /* CBTPeripheral.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTPeripheral.h; sourceTree = "<group>"; };
 		E724DA421A4234F200049BF1 /* CBTPeripheral.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTPeripheral.m; sourceTree = "<group>"; };
 		E724DA451A4236EA00049BF1 /* CBTConnectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTConnectViewController.h; sourceTree = "<group>"; };
@@ -53,6 +52,9 @@
 		E724DA4A1A4242BF00049BF1 /* CBTCentralControlPanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTCentralControlPanelViewController.h; sourceTree = "<group>"; };
 		E724DA4B1A4242BF00049BF1 /* CBTCentralControlPanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTCentralControlPanelViewController.m; sourceTree = "<group>"; };
 		E724DA4C1A4242BF00049BF1 /* CBTCentralControlPanelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBTCentralControlPanelViewController.xib; sourceTree = "<group>"; };
+		E748E4DE1A5B03C10098B34F /* CBTPeripheralControlPanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTPeripheralControlPanelViewController.h; sourceTree = "<group>"; };
+		E748E4DF1A5B03C10098B34F /* CBTPeripheralControlPanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTPeripheralControlPanelViewController.m; sourceTree = "<group>"; };
+		E748E4E01A5B03C10098B34F /* CBTPeripheralControlPanelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBTPeripheralControlPanelViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,13 +140,14 @@
 			isa = PBXGroup;
 			children = (
 				E724DA3C1A4231D000049BF1 /* CoreBluetooth.framework */,
-				E724DA3E1A4234E700049BF1 /* CBTCentral.h */,
-				E724DA3F1A4234E700049BF1 /* CBTCentral.m */,
 				E724DA4A1A4242BF00049BF1 /* CBTCentralControlPanelViewController.h */,
 				E724DA4B1A4242BF00049BF1 /* CBTCentralControlPanelViewController.m */,
 				E724DA4C1A4242BF00049BF1 /* CBTCentralControlPanelViewController.xib */,
 				E724DA411A4234F200049BF1 /* CBTPeripheral.h */,
 				E724DA421A4234F200049BF1 /* CBTPeripheral.m */,
+				E748E4DE1A5B03C10098B34F /* CBTPeripheralControlPanelViewController.h */,
+				E748E4DF1A5B03C10098B34F /* CBTPeripheralControlPanelViewController.m */,
+				E748E4E01A5B03C10098B34F /* CBTPeripheralControlPanelViewController.xib */,
 			);
 			name = "Core Bluetooth";
 			path = CBTest;
@@ -231,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E724DA211A42302E00049BF1 /* LaunchScreen.xib in Resources */,
+				E748E4E21A5B03C10098B34F /* CBTPeripheralControlPanelViewController.xib in Resources */,
 				E724DA491A4236EA00049BF1 /* CBTConnectViewController.xib in Resources */,
 				E724DA1E1A42302E00049BF1 /* Images.xcassets in Resources */,
 				E724DA4E1A4242BF00049BF1 /* CBTCentralControlPanelViewController.xib in Resources */,
@@ -252,8 +256,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E724DA161A42302E00049BF1 /* AppDelegate.m in Sources */,
+				E748E4E11A5B03C10098B34F /* CBTPeripheralControlPanelViewController.m in Sources */,
 				E724DA131A42302E00049BF1 /* main.m in Sources */,
-				E724DA401A4234E700049BF1 /* CBTCentral.m in Sources */,
 				E724DA481A4236EA00049BF1 /* CBTConnectViewController.m in Sources */,
 				E724DA431A4234F200049BF1 /* CBTPeripheral.m in Sources */,
 				E724DA4D1A4242BF00049BF1 /* CBTCentralControlPanelViewController.m in Sources */,
@@ -439,6 +443,7 @@
 				E724DA321A42302E00049BF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E724DA331A42302E00049BF1 /* Build configuration list for PBXNativeTarget "CBTestTests" */ = {
 			isa = XCConfigurationList;
@@ -447,6 +452,7 @@
 				E724DA351A42302E00049BF1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
