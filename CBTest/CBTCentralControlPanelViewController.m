@@ -13,7 +13,7 @@
 @property (nonatomic, strong) CBCentralManager *centralManager;
 @property (nonatomic) BOOL isScanning;
 
-@property (nonatomic, strong) NSArray *discoveredPeripherals;
+@property (nonatomic, strong) NSOrderedSet *discoveredPeripherals;
 
 @end
 
@@ -27,6 +27,15 @@
     }
     
     return _centralManager;
+}
+
+-(NSOrderedSet *)discoveredPeripherals
+{
+    if (!_discoveredPeripherals) {
+        _discoveredPeripherals = [[NSOrderedSet alloc]init];;
+    }
+    
+    return _discoveredPeripherals;
 }
 
 
@@ -110,9 +119,15 @@
 {
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
     
-    CBPeripheral *peripheral = self.discoveredPeripherals[indexPath.row];
+    CBPeripheral *peripheral = [self.discoveredPeripherals objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = peripheral.name;
+    if (peripheral.name) {
+        cell.textLabel.text = peripheral.name;
+    }
+    else {
+        cell.textLabel.text = [peripheral.identifier UUIDString];
+    }
+    
     
     return cell;
 }
@@ -147,11 +162,11 @@ didDiscoverPeripheral:(CBPeripheral *)peripheral
     advertisementData:(NSDictionary *)advertisementData
                  RSSI:(NSNumber *)RSSI
 {
-    NSMutableArray *tempArray = [self.discoveredPeripherals mutableCopy];
+    NSMutableOrderedSet *tempSet = [self.discoveredPeripherals mutableCopy];
     
-    [tempArray addObject:peripheral];
+    [tempSet addObject:peripheral];
     
-    self.discoveredPeripherals = [tempArray copy];
+    self.discoveredPeripherals = [tempSet copy];
     [self.tableView reloadData];
     
     NSLog(@"Discovered %@",peripheral.name);
