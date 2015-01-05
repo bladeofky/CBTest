@@ -7,12 +7,14 @@
 //
 
 #import "CBTCentralControlPanelViewController.h"
+#import "CBTPeripheralTableViewController.h"
 
 @interface CBTCentralControlPanelViewController ()
 
 @property (nonatomic, strong) CBCentralManager *centralManager;
 @property (nonatomic) BOOL isScanning;
 
+@property (nonatomic, strong) NSArray *connectedPeripherals;
 @property (nonatomic, strong) NSOrderedSet *discoveredPeripherals;
 
 @end
@@ -38,6 +40,14 @@
     return _discoveredPeripherals;
 }
 
+-(NSArray *)connectedPeripherals
+{
+    if (!_connectedPeripherals) {
+        _connectedPeripherals = @[];
+    }
+    
+    return _connectedPeripherals;
+}
 
 #pragma mark - View Lifecycle
 - (void)viewDidLoad {
@@ -106,7 +116,7 @@
     NSInteger numRows;
     
     if (section == 0) {
-        numRows = 0;
+        numRows = [self.connectedPeripherals count];
     }
     else if (section == 1) {
         numRows = [self.discoveredPeripherals count];
@@ -119,7 +129,14 @@
 {
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
     
-    CBPeripheral *peripheral = [self.discoveredPeripherals objectAtIndex:indexPath.row];
+    CBPeripheral *peripheral;
+    
+    if (indexPath.section == 0) {
+        peripheral = [self.connectedPeripherals objectAtIndex:indexPath.row];
+    }
+    else {
+        peripheral = [self.discoveredPeripherals objectAtIndex:indexPath.row];
+    }
     
     if (peripheral.name) {
         cell.textLabel.text = peripheral.name;
@@ -128,10 +145,36 @@
         cell.textLabel.text = [peripheral.identifier UUIDString];
     }
     
-    
     return cell;
 }
 
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *output;
+    
+    if (section == 0) {
+        output = @"Connected Devices";
+    }
+    else {
+        output = @"Discovered Devices";
+    }
+    
+    return output;
+}
+
+#pragma mark - UITableViewDelegate
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section == 0) {
+        CBTPeripheralTableViewController *peripheralTableVC = [[CBTPeripheralTableViewController alloc]init];
+        peripheralTableVC.peripheral = self.connectedPeripherals[indexPath.row];
+        [self.navigationController pushViewController:peripheralTableVC animated:YES];
+    }
+    else {
+        CBPeripheral *peripheral = self.discoveredPeripherals[indexPath.row];
+        [self.centralManager connectPeripheral:peripheral options:nil];
+    }
+}
 
 #pragma mark - IBActions
 
@@ -170,6 +213,39 @@ didDiscoverPeripheral:(CBPeripheral *)peripheral
     [self.tableView reloadData];
     
     NSLog(@"Discovered %@",peripheral.name);
+}
+
+-(void)centralManager:(CBCentralManager *)central didConnectPeripheral:(CBPeripheral *)peripheral
+{
+    NSMutableOrderedSet *tempDiscoveredPeripherals = [self.discoveredPeripherals mutableCopy];
+    NSMutableArray *tempConnectedPeripherals = [self.connectedPeripherals mutableCopy];
+    
+    [tempDiscoveredPeripherals removeObject:peripheral];
+    [tempConnectedPeripherals addObject:peripheral];
+    
+    self.discoveredPeripherals = [tempDiscoveredPeripherals copy];
+    self.connectedPeripherals = [tempConnectedPeripherals copy];
+    
+    [self.tableView reloadData];
+    
+    NSLog(@"Successfully connected to peripheral: %@", peripheral.name);
+
+}
+
+-(void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
+{
+    NSMutableOrderedSet *tempDiscoveredPeripherals = [self.discoveredPeripherals mutableCopy];
+    NSMutableArray *tempConnectedPeripherals = [self.connectedPeripherals mutableCopy];
+    
+    [tempConnectedPeripherals removeObject:peripheral];
+    [tempDiscoveredPeripherals addObject:peripheral];
+    
+    self.connectedPeripherals = [tempConnectedPeripherals copy];
+    self.discoveredPeripherals = [tempDiscoveredPeripherals copy];
+    
+    [self.tableView reloadData];
+    
+    NSLog(@"Disconnected from peripheral: %@", peripheral.name);
 }
 
 @end

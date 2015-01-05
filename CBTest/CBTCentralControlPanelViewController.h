@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
 
-@interface CBTCentralControlPanelViewController : UIViewController <UITableViewDataSource, CBCentralManagerDelegate>
+@interface CBTCentralControlPanelViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, CBCentralManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *statusTextLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

@@ -19,6 +19,7 @@
 		E724DA4E1A4242BF00049BF1 /* CBTCentralControlPanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E724DA4C1A4242BF00049BF1 /* CBTCentralControlPanelViewController.xib */; };
 		E748E4E11A5B03C10098B34F /* CBTPeripheralControlPanelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E748E4DF1A5B03C10098B34F /* CBTPeripheralControlPanelViewController.m */; };
 		E748E4E21A5B03C10098B34F /* CBTPeripheralControlPanelViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E748E4E01A5B03C10098B34F /* CBTPeripheralControlPanelViewController.xib */; };
+		E748E4EA1A5B43750098B34F /* CBTPeripheralTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E748E4E91A5B43750098B34F /* CBTPeripheralTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,8 @@
 		E748E4DE1A5B03C10098B34F /* CBTPeripheralControlPanelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTPeripheralControlPanelViewController.h; sourceTree = "<group>"; };
 		E748E4DF1A5B03C10098B34F /* CBTPeripheralControlPanelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTPeripheralControlPanelViewController.m; sourceTree = "<group>"; };
 		E748E4E01A5B03C10098B34F /* CBTPeripheralControlPanelViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CBTPeripheralControlPanelViewController.xib; sourceTree = "<group>"; };
+		E748E4E81A5B43750098B34F /* CBTPeripheralTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBTPeripheralTableViewController.h; sourceTree = "<group>"; };
+		E748E4E91A5B43750098B34F /* CBTPeripheralTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBTPeripheralTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +106,8 @@
 				E724DA4A1A4242BF00049BF1 /* CBTCentralControlPanelViewController.h */,
 				E724DA4B1A4242BF00049BF1 /* CBTCentralControlPanelViewController.m */,
 				E724DA4C1A4242BF00049BF1 /* CBTCentralControlPanelViewController.xib */,
+				E748E4E81A5B43750098B34F /* CBTPeripheralTableViewController.h */,
+				E748E4E91A5B43750098B34F /* CBTPeripheralTableViewController.m */,
 				E748E4DE1A5B03C10098B34F /* CBTPeripheralControlPanelViewController.h */,
 				E748E4DF1A5B03C10098B34F /* CBTPeripheralControlPanelViewController.m */,
 				E748E4E01A5B03C10098B34F /* CBTPeripheralControlPanelViewController.xib */,
@@ -242,6 +247,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E724DA161A42302E00049BF1 /* AppDelegate.m in Sources */,
+				E748E4EA1A5B43750098B34F /* CBTPeripheralTableViewController.m in Sources */,
 				E748E4E11A5B03C10098B34F /* CBTPeripheralControlPanelViewController.m in Sources */,
 				E724DA131A42302E00049BF1 /* main.m in Sources */,
 				E724DA481A4236EA00049BF1 /* CBTConnectViewController.m in Sources */,

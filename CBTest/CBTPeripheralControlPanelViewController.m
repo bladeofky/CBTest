@@ -105,6 +105,14 @@
     return output;
 }
 
+#pragma mark - UITableViewDataSource
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 0;
+}
+
+#pragma mark - UITableViewDelegate
+
 #pragma mark - CBPeripheralDelegate
 -(void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral
 {
